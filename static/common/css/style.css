@@ -1,0 +1,235 @@
+header {
+    background:#fbfff2;
+    color:#708fff;
+}
+
+.header_icon{
+    display:flex;
+    font-size:2rem;
+    padding:0.3rem;
+    margin-left:0.5rem;
+}
+
+body {
+    background-image: linear-gradient(45deg, #fbfff2 0%, #f5ffde 100%);
+}
+
+/* 動画投稿欄編集済 */
+.sort {
+       float: right;
+       margin-right: 10%;
+       font-size: 1.5rem;
+       color: #F6AF2C;
+}
+
+/* video はみ出しを防ぐ */
+
+video {
+max-width:100%;
+}
+
+/* video list */
+.video_content_list {
+     display:flex;
+     flex-wrap:wrap;
+}
+
+.video_content {
+     width:calc(100% / 3);
+}
+
+.video_content_link {
+    display:block;
+    margin:0.5rem;
+}
+.video_content_link:hover {
+    text-decoration:underline;
+}
+
+.video_title {
+    color:#4188FB;
+    font-weight:bold;
+}
+
+@media (max-width:800px){
+    .video_content {
+        width:calc(100% / 3);
+    }
+}
+
+
+
+/* ボタンのcss */
+
+/* コメント投稿ボタン */
+
+button.btn-gradient {
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#FAAAC2), to(#fee140));
+  background-image: -webkit-linear-gradient(left, #FAAAC2 0%, #fee140 100%);
+  background-image: linear-gradient(to right, #FAAAC2 0%, #fee140 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+
+button.btn-gradient:hover {
+  -webkit-transform: translate(0, -2px);
+  transform: translate(0, -2px);
+  color: #fff;
+  -webkit-box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+}
+
+/* 動画投稿ボタン */
+.btn-gradient-radius {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  border:solid 0.12rem #F5B387;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #f76e00;
+  background-image: linear-gradient(45deg, #ECFEE0 0%, #FEF2E0 100%);
+  transition: .4s;
+}
+
+.btn-gradient-radius:hover {
+  background-image: linear-gradient(45deg, #fff5d2 0%, #ffe380 100%);
+  color:#1C2245;
+}
+
+/* 削除ボタン */
+.btn-gradient-delete {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #224928;
+  background-image: linear-gradient(45deg, #FEE6E8 0%, #F3B0B5 100%);
+  transition: .2s;
+}
+
+.btn-gradient-delete:hover {
+  background-image: linear-gradient(45deg, #FD9BA2 0%, #FE727C 100%);
+}
+
+/* OKボタン */
+
+.btn-gradient-success {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #F9815D;
+  background-image: linear-gradient(45deg, #e5ffff 0%, #a8ffff 100%);
+  transition: .2s;
+}
+
+.btn-gradient-success:hover {
+  background-image: linear-gradient(45deg, #a8ffff 0%, #7fffff 100%);
+}
+
+/* キャンセルボタン */
+
+a.btn-cancel {
+  color: #4D6324;
+  border: 2px solid #fff;
+  border-radius: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#E2FFA8), to(#A9D459));
+  background-image: -webkit-linear-gradient(left, #E2FFA8 0%, #A9D459 100%);
+  background-image: linear-gradient(to right, #E2FFA8 0%, #A9D459 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+
+a.btn-cancel:hover {
+  -webkit-transform: translate(0, -2px);
+  transform: translate(0, -2px);
+  color: #fff;
+  -webkit-box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+}
+
+
+/* TOPページに戻るボタン*/
+
+a.btn-return {
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#FAAAC2), to(#fee140));
+  background-image: -webkit-linear-gradient(left, #FAAAC2 0%, #fee140 100%);
+  background-image: linear-gradient(to right, #FAAAC2 0%, #fee140 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+
+a.btn-return:hover {
+  -webkit-transform: translate(0, -2px);
+  transform: translate(0, -2px);
+  color: #fff;
+  -webkit-box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+}
+
+/* 動画編集送信ボタン */
+
+button {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+/*
+a {
+  margin:0;
+  padding:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+  text-decoration: none;
+}
+*/
+.button {
+    position: relative;
+    display: block;
+    padding: 1em 2em 1em 1em;
+    margin: 1em;
+    width: 75px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    line-height: 1;
+    background: #5bbee5;
+    background: linear-gradient(to right, #5bbee5, #52ddae);
+    text-indent: 0.1em;
+    letter-spacing: 0.1em;
+    border-radius: 1.5em;
+    box-sizing:border-box;
+    cursor:pointer;
+}
+
+.button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 1.5em;
+  margin: auto;
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+  transform: rotate(45deg);
+  transition: right 0.5s;
+}
+
+.button:hover:after{
+  right: 1em;
+}

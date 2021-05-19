@@ -1,0 +1,6 @@
+<ul class="pagination justify-content-center">
+    {% for page in pages %}
+    <li class="page-item"><a class="page-link" {% if page.link %}href="{{ page.link }}"{% endif %}>{{ page.name }}</a></li>
+    {% endfor %}
+</ul>
+

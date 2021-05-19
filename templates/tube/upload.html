@@ -1,0 +1,67 @@
+{% extends "common/sidebar.html" %}
+{% load static %}
+
+
+{% block site_title %}TubeIntegrity{% endblock %}
+
+
+{% block extra_head %}
+{{ block.super }}
+
+<script src="{% static 'tube/js/thumbs.js' %}"></script>
+<script src="{% static 'tube/js/upload.js' %}"></script>
+{% endblock %}
+
+
+
+{% block page_title %}TubeIntegrity{% endblock %}
+
+{% block main %}
+
+
+
+<ul>
+    <li class="orange">mp4ファイルのみ対応しています。</li>
+    <li class="orange">ファイルサイズは上限200MBです。</li>
+</ul>
+
+
+        <form id="video_upload_form" action="{% url 'tube:upload' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <select class="select_form" name="category">
+                <option value="">カテゴリを選択してください</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+                {% empty %}
+                <option value="">カテゴリがありません。</option>
+                {% endfor %}
+            </select>
+
+            <div>
+                {% for tag in tags %}
+                <input id ="{{ tag.id }}" type="checkbox" name="tag" value="{{ tag.id }}"><label for="{{ tag.id }}">{{ tag.name }}</label>
+                {% endfor %}
+            </div>
+
+            <input class = "input_form_text" placeholder="タイトル..." name="title" >
+
+            <textarea class="textarea_form" name="description" placeholder="動画説明文..." rows="4"></textarea>
+
+            <input id="upload_form_video" type="file" accept="video/mp4" name="movie">
+            {# <div>サムネイル：<input type="file" accept=".jpg,.png" name="thumbnail"></div> #}
+
+
+
+            <div class="thumbnail_create_area">
+                <div class="thumbnail_create_video"><video id="thumbnail_video" class="thumbnail_video" src="" controls muted></video></div>
+                <div class="thumbnail_create_button"><button id="thumbnail_button" class="thumbnail_button" type="button"><i class="far fa-images"></i>サムネイル指定</button></div>
+                <div class="thumbnail_create_canvas"><div class="thumbnail_create_canvas_explain">ここにサムネイルが表示される</div><canvas id="canvas"></canvas></div>
+            </div>
+
+
+
+            <input id="upload" class="btn-gradient-radius" type="button" value="送信">
+
+        </form>
+        <a class="btn btn-return" href="{% url 'tube:index' %}">TOPページへ</a>
+{% endblock %}

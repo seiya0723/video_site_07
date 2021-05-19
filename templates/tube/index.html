@@ -1,0 +1,66 @@
+{% extends "common/sidebar.html" %}
+{% load static %}
+{% load param_change %}
+
+
+{% block site_title %}TubeIntegrity{% endblock %}
+
+
+{% block extra_head %}
+<script>console.log("追加のcssやjsがあればここにまとめて書く");</script>
+
+{% endblock %}
+
+
+{% block page_title %}TubeIntegrity{% endblock %}
+
+{% block main %}
+
+        {% include "tube/search_form.html" %}
+
+        <div><a class="btn btn-gradient-radius" href="{% url 'tube:upload' %}"><span>動画投稿ページへ</span></a></div>
+
+
+        {% for video in videos %}
+
+           <div class="video_content_list">
+               <div class="video_content">
+                    <a class="video_content_link" href="{% url 'tube:single' video.id %}">
+                        {# {% if video.movie %}<div><video src="/media/{{ video.movie }}" alt="投稿された動画" controls></video></div>{% endif %} #}
+                        {% if video.thumbnail %}<div><img src="/media/{{ video.thumbnail }}" alt="サムネイル"></div>{% endif %}
+                        <div class="video_title">{{ video.title }}</div>
+                    </a>
+               </div>
+           </div>
+
+        {% endfor %}
+
+
+        {% generate_pagelink request "page" "1" videos.paginator.num_pages videos.number %}
+
+        {% comment %}
+        <ul class="pagination justify-content-center">
+            {% if videos.has_previous %}
+            <li class="page-item"><a class="page-link" href="?{% url_replace request 'page' '1' %}">最初のページ</a></li>
+            <li class="page-item"><a class="page-link" href="?{% url_replace request 'page' videos.previous_page_number %}">前のページ</a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link">最初のページ</a></li>
+            <li class="page-item"><a class="page-link">前のページ</a></li>
+            {% endif %}
+            <li class="page-item"><a class="page-link">{{ videos.number }}</a></li>
+            {% if videos.has_next %}
+            <li class="page-item"><a class="page-link" href="?{% url_replace request 'page' videos.next_page_number %}">次のページ</a></li>
+            <li class="page-item"><a class="page-link" href="?{% url_replace request 'page' videos.paginator.num_pages %}">最後のページ</a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link">次のページ</a></li>
+            <li class="page-item"><a class="page-link">最後のページ</a></li>
+            {% endif %}
+        </ul>
+        {% endcomment %}
+
+
+{% endblock %}
+
+
+
+
